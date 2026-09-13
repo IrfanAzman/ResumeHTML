@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MO BAMBA - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f4f1ea;
+      --paper: #fffdf8;
+      --ink: #181716;
+      --muted: #5c5751;
+      --line: #d8d0c4;
+      --accent: #9d5c2f;
+      --accent-soft: #ead8c8;
+      --sidebar: #efe7dc;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(157,92,47,0.08), transparent 30%),
+        linear-gradient(180deg, #f6f2eb 0%, #efe8de 100%);
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+    }
+
+    body{
+      padding: 24px;
+    }
+
+    .resume{
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow:
+        0 24px 60px rgba(31, 22, 14, 0.14),
+        0 4px 14px rgba(31, 22, 14, 0.08);
+      display: grid;
+      grid-template-columns: 33% 67%;
+      overflow: hidden;
+      border: 1px solid rgba(24,23,22,0.06);
+      animation: pageIn 0.8s ease-out both;
+    }
+
+    .sidebar{
+      background:
+        linear-gradient(180deg, rgba(157,92,47,0.08), rgba(157,92,47,0.02)),
+        var(--sidebar);
+      padding: 24px 22px 22px;
+      position: relative;
+    }
+
+    .sidebar::before{
+      content:"";
+      position:absolute;
+      top:0;
+      right:0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--accent), #c88b5d);
+    }
+
+    .main{
+      padding: 24px 26px 22px;
+    }
+
+    .name{
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 30px;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+    }
+
+    .role{
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact{
+      display: grid;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact div{
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .section{
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: revealUp 0.7s ease forwards;
+    }
+
+    .section:nth-child(1){ animation-delay: 0.08s; }
+    .section:nth-child(2){ animation-delay: 0.16s; }
+    .section:nth-child(3){ animation-delay: 0.24s; }
+    .section:nth-child(4){ animation-delay: 0.32s; }
+    .section:nth-child(5){ animation-delay: 0.40s; }
+    .section:nth-child(6){ animation-delay: 0.48s; }
+
+    .section-title{
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: var(--ink);
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .summary{
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #2a2826;
+      margin: 0;
+      text-align: justify;
+    }
+
+    .entry{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 14px;
+      padding: 0 0 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .entry:last-child{
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .entry-title{
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .entry-subtitle{
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .entry-date{
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+      align-self: start;
+      text-align: right;
+    }
+
+    .entry-desc{
+      grid-column: 1 / -1;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #3c3835;
+      margin-top: 2px;
+    }
+
+    .skill-list,
+    .info-list,
+    .cert-list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .skill-list{
+      grid-template-columns: 1fr;
+    }
+
+    .skill-list li,
+    .info-list li,
+    .cert-list li{
+      position: relative;
+      padding-left: 14px;
+      font-size: 11.5px;
+      line-height: 1.4;
+      color: #2e2b28;
+    }
+
+    .skill-list li::before,
+    .info-list li::before,
+    .cert-list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .education-item{
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-item:last-child{
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .edu-school{
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .edu-degree{
+      font-size: 11.5px;
+      color: #2d2a27;
+      margin-top: 2px;
+      line-height: 1.45;
+    }
+
+    .edu-meta{
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .tagline{
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 14px;
+      border-top: 1px solid rgba(24,23,22,0.1);
+      padding-top: 12px;
+    }
+
+    .print-note{
+      text-align:center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @keyframes revealUp{
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pageIn{
+      from{
+        opacity: 0;
+        transform: translateY(18px) scale(0.995);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media screen and (max-width: 900px){
+      body{
+        padding: 12px;
+      }
+
+      .resume{
+        width: 100%;
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .main{
+        padding: 20px;
+      }
+
+      .name{
+        font-size: 28px;
+      }
+
+      .entry{
+        grid-template-columns: 1fr;
+      }
+
+      .entry-date{
+        text-align: left;
+      }
+    }
+
+    @media print{
+      @page{
+        size: A4;
+        margin: 0;
+      }
+
+      html, body{
+        background: white;
+      }
+
+      body{
+        padding: 0;
+      }
+
+      .resume{
+        width: 210mm;
+        min-height: 297mm;
+        box-shadow: none;
+        border: none;
+        margin: 0;
+      }
+
+      .print-note{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume" aria-label="Resume of MO BAMBA">
+    <aside class="sidebar">
+      <section class="section">
+        <h1 class="name">MO BAMBA</h1>
+        <div class="role">Computer Science Graduate</div>
+        <div class="contact">
+          <div>KL, Malaysia</div>
+          <div>012-3456789</div>
+          <div>mobamba@gmail.com</div>
+          <div>linkedin.com/in/mobamba/</div>
+          <div>github.com/MoBamba</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Skills & Abilities</h2>
+        <ul class="skill-list">
+          <li>Microsoft Office</li>
+          <li>Microsoft Azure</li>
+          <li>Web Development (HTML, PHP, MySQL)</li>
+          <li>Mobile App Development (Flutter)</li>
+          <li>Multimedia Editing (Photoshop, Illustrator, Premiere Pro, Canva)</li>
+          <li>iClone 3D</li>
+          <li>Java</li>
+          <li>Python</li>
+          <li>C / C++</li>
+          <li>Six Sigma</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Certifications & Awards</h2>
+        <ul class="cert-list">
+          <li>Microsoft Azure Administrator</li>
+          <li>Malaysia Qualification Round, Asiagraph Reallusion Award 2017 (Participant)</li>
+          <li>Statistical Analysis Tools in Six Sigma (SATSS)</li>
+          <li>The Sustainability Workforce in Malaysia, NIOSH (Participant)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Additional Information</h2>
+        <ul class="info-list">
+          <li>Proficient in both Malay and English</li>
+          <li>National-level, Malaysian United Cadets Association (PKBM) Camp 2013</li>
+        </ul>
+      </section>
+
+      <div class="tagline">Adaptable • Creative • Technical • Team-Oriented</div>
+    </aside>
+
+    <section class="main">
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary">
+          Computer Science graduate seeking a challenging role to explore diverse IT fields, with a strong
+          foundation in application development and web design using C, Java, PHP, and MySQL.
+          Proficient in multimedia skills including animation, video editing, and graphic design.
+          Committed to continuous learning, with a focus on enhancing teamwork, adaptability, and
+          time management abilities.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <article class="entry">
+          <div>
+            <div class="entry-title">Freelancer</div>
+            <div class="entry-subtitle">Computer Repair & Maintenance</div>
+          </div>
+          <div class="entry-date">Apr 2024 - Oct 2024</div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <div class="entry-title">Jabatan Pengairan dan Saliran Kluang</div>
+            <div class="entry-subtitle">Internship Trainee (Degree)</div>
+          </div>
+          <div class="entry-date">Oct 2023 - Mar 2024</div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <div class="entry-title">Majlis Perbandaran Kluang</div>
+            <div class="entry-subtitle">Industrial Training (Diploma)</div>
+          </div>
+          <div class="entry-date">Aug 2017 - Jan 2018</div>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-item">
+          <div class="edu-school">Universiti Teknikal Malaysia Melaka (UTeM)</div>
+          <div class="edu-degree">Bachelor’s Degree of Computer Science (Artificial Intelligence) With Honours</div>
+          <div class="edu-meta">2024 • Major: Computer Science • Minor: Artificial Intelligence</div>
+        </div>
+
+        <div class="education-item">
+          <div class="edu-school">Universiti Tun Hussein Onn Malaysia (UTHM)</div>
+          <div class="edu-degree">Diploma in Information Technology</div>
+          <div class="edu-meta">2018 • Major: Information Technology</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="print-note">Best printed with A4 paper at 100% scale.</div>
+
+  <script>
+    document.querySelectorAll('.section').forEach((el, i) => {
+      el.style.animationDelay = `${0.08 + i * 0.08}s`;
+    });
+  </script>
+</body>
+</html>
