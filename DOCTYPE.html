@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MO BAMBA - Resume</title>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irfan Azman - Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" class="">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&amp;display=swap" rel="stylesheet">
+ <style>
     :root{
       --bg: #f4f1ea;
       --paper: #fffdf8;
@@ -24,7 +23,7 @@
       margin: 0;
       padding: 0;
       background:
-        radial-gradient(circle at top left, rgba(157,92,47,0.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(157,92,47,0.08), transparent 0%),
         linear-gradient(180deg, #f6f2eb 0%, #efe8de 100%);
       color: var(--ink);
       font-family: "Inter", sans-serif;
@@ -43,7 +42,7 @@
         0 24px 60px rgba(31, 22, 14, 0.14),
         0 4px 14px rgba(31, 22, 14, 0.08);
       display: grid;
-      grid-template-columns: 33% 67%;
+      grid-template-columns: 35% 65%;
       overflow: hidden;
       border: 1px solid rgba(24,23,22,0.06);
       animation: pageIn 0.8s ease-out both;
@@ -53,7 +52,7 @@
       background:
         linear-gradient(180deg, rgba(157,92,47,0.08), rgba(157,92,47,0.02)),
         var(--sidebar);
-      padding: 24px 22px 22px;
+      padding: 20px 22px 22px;
       position: relative;
     }
 
@@ -72,21 +71,26 @@
     }
 
     .name{
-      font-family: "Archivo Expanded", sans-serif;
-      font-size: 30px;
-      line-height: 0.95;
+      font-family: "Special Gothic Condensed One", sans-serif;
+      font-weight: 400;
+      font-size: 38;
+      font-style: bold;
+      line-height: 0.9;
+      text-align: center;
       letter-spacing: 0.02em;
-      margin: 0 0 10px;
+      margin: 5px 0 10px;
       text-transform: uppercase;
     }
 
     .role{
+      font-family: "Archivo Expanded", sans-serif;
       display: inline-block;
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: 12px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 700;
+      text-align: center;
       margin-bottom: 16px;
     }
 
@@ -94,6 +98,7 @@
       display: grid;
       gap: 7px;
       font-size: 12px;
+      font-weight:600;
       color: var(--muted);
       margin-bottom: 20px;
     }
@@ -101,6 +106,10 @@
     .contact div{
       line-height: 1.35;
       word-break: break-word;
+    }
+
+    .sep1{
+      line-height: 0.5;
     }
 
     .section{
@@ -139,7 +148,7 @@
     }
 
     .summary{
-      font-size: 12.5px;
+      font-size: 11.8px;
       line-height: 1.55;
       color: #2a2826;
       margin: 0;
@@ -149,12 +158,17 @@
     .entry{
       display: grid;
       grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
       gap: 4px 14px;
       padding: 0 0 10px;
       margin-bottom: 10px;
       border-bottom: 1px solid var(--line);
     }
 
+    .entry > div:first-child {
+      grid-column: 1; /* title + subtitle on the left */
+      grid-row: 1;
+    }
     .entry:last-child{
       margin-bottom: 0;
       padding-bottom: 0;
@@ -176,6 +190,8 @@
     }
 
     .entry-date{
+      grid-column: 2; /* date on the right */
+      grid-row: 1;
       font-size: 11px;
       color: var(--muted);
       font-weight: 600;
@@ -208,6 +224,7 @@
 
     .skill-list li,
     .info-list li,
+    .cert-table td,
     .cert-list li{
       position: relative;
       padding-left: 14px;
@@ -223,6 +240,18 @@
       position:absolute;
       left:0;
       top:0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .cert-table td::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -252,16 +281,25 @@
       font-size: 11.5px;
       color: #2d2a27;
       margin-top: 2px;
+      margin-right: 5px;
       line-height: 1.45;
     }
 
     .edu-meta{
       font-size: 11px;
-      color: var(--muted);
+      color: var(--accent);
       margin-top: 4px;
+      margin-right: 5px;
       font-weight: 600;
     }
 
+    .cert-table{
+      font-size: 11.5px;
+      color: #2d2a27;
+      margin-top: 2px;
+      margin-right: 5px;
+      line-height: 1.45;
+    }
     .tagline{
       font-size: 10.5px;
       text-transform: uppercase;
@@ -278,6 +316,12 @@
       color: var(--muted);
       margin-top: 14px;
     }
+    thead,tbody{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
     @keyframes revealUp{
       to{
@@ -353,53 +397,69 @@
       }
     }
   </style>
-</head>
+<style id="__web-inspector-hide-shortcut-style__">
+.__web-inspector-hide-shortcut__, .__web-inspector-hide-shortcut__ *
+{
+    visibility: hidden !important;
+}
+</style></head>
 <body>
   <main class="resume" aria-label="Resume of MO BAMBA">
     <aside class="sidebar">
-      <section class="section">
-        <h1 class="name">MO BAMBA</h1>
-        <div class="role">Computer Science Graduate</div>
+      <section class="section" style="animation-delay: 0.08s;">
+<style>
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto; /* Adjust the width as needed */
+}
+</style>
+        
+        <img src="gambar.png" class="center" height="130" width="130">
+        <div class="sep1"></div>
+        <h1 class="name">MUHAMAD NUR IRFAN BIN AZMAN</h1>
+        <div class="role">BCS Graduate   |   DATA ANNOTATOR      IT FREELANCER | AI ENTHUSIAST</div>
         <div class="contact">
-          <div>KL, Malaysia</div>
-          <div>012-3456789</div>
-          <div>mobamba@gmail.com</div>
-          <div>linkedin.com/in/mobamba/</div>
-          <div>github.com/MoBamba</div>
+          <div style="color: var(--accent);"><span>📞</span> +6013-624 0892</div>
+          <div><span>🏡</span> Kluang, Johor (Willing to Relocate)</div>
+          <div><span>📧</span> irfanazman161097@gmail.com</div>
+          <div><span>👨&zwj;💼</span> linkedin.com/in/nurirfanzman/</div>
+          <div><span>👨🏼&zwj;💻</span> github.com/IrfanAzman</div>
+          <div><span>🏍️</span> B2 &amp; DA(L) License</div>
         </div>
       </section>
 
-      <section class="section">
-        <h2 class="section-title">Skills & Abilities</h2>
+      <section class="section" style="animation-delay: 0.16s;">
+        <h2 class="section-title">Skills &amp; Abilities</h2>
         <ul class="skill-list">
-          <li>Microsoft Office</li>
-          <li>Microsoft Azure</li>
-          <li>Web Development (HTML, PHP, MySQL)</li>
-          <li>Mobile App Development (Flutter)</li>
-          <li>Multimedia Editing (Photoshop, Illustrator, Premiere Pro, Canva)</li>
-          <li>iClone 3D</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>C / C++</li>
-          <li>Six Sigma</li>
+          <li>Microsoft Office (Word, Excel, PowerPoint, Access, Project)</li><li>Data Analytics (Microsoft Power BI)</li>
+          
+          
+          <li>Full-stack Web Development (HTML, PHP, CSS, Javascript, MySQL)</li>
+          <li>Mobile App Development (Flutter, Android Studio)</li>
+          <li>Multimedia Editing (Photoshop, Illustrator, Premiere Pro, Canva, iClone 3D)</li>
+          <li>GPL Programming (Java, Python, C/C++)</li>
+          
+<li>Game Development (Adobe Flash, ActionScript)</li><li>Shell scripting (Bash [Linux], CMD, Powershell [Windows])</li>
+<li>DevOps (Git, Microsoft Azure, Amazon AWS, Docker, Kubernetes)</li>
+<li>SATSS (Minitab)</li>
         </ul>
       </section>
 
-      <section class="section">
-        <h2 class="section-title">Certifications & Awards</h2>
-        <ul class="cert-list">
-          <li>Microsoft Azure Administrator</li>
-          <li>Malaysia Qualification Round, Asiagraph Reallusion Award 2017 (Participant)</li>
-          <li>Statistical Analysis Tools in Six Sigma (SATSS)</li>
-          <li>The Sustainability Workforce in Malaysia, NIOSH (Participant)</li>
-        </ul>
-      </section>
-
-      <section class="section">
+      <section class="section" style="animation-delay: 0.24s;">
         <h2 class="section-title">Additional Information</h2>
         <ul class="info-list">
-          <li>Proficient in both Malay and English</li>
-          <li>National-level, Malaysian United Cadets Association (PKBM) Camp 2013</li>
+          <li>Proficient in Malay, English and Indonesian</li>
+          <li>Conversational in Arabic, Mandarin and German</li>
+        </ul>
+      </section>
+
+<section class="section" style="animation-delay: 0.32s;">
+        <h2 class="section-title">REFERENCES</h2>
+        <ul class="info-list">
+          <li style="margin-bottom: 7px;"><a style="font-weight: 600;">AHMAD YASRI BIN AHMAD YASRANI </a><br> Project Assistant, Appen AI Sdn Bhd<br>
+           <a style="color: var(--accent); font-weight: 600;"><span>📞</span>+6019-691 0414</a></li>
+          <li><a style="font-weight: 600;">ZARIT ISKANDAR<!--</a--></a><br>Senior Team Lead, Appen AI Sdn Bhd<br><a style="color: var(--accent); font-weight: 600;"><span>📞</span>+6014-538 7498</a></li>
         </ul>
       </section>
 
@@ -407,26 +467,37 @@
     </aside>
 
     <section class="main">
-      <section class="section">
+      <section class="section" style="animation-delay: 0.4s;">
         <h2 class="section-title">Professional Summary</h2>
         <p class="summary">
-          Computer Science graduate seeking a challenging role to explore diverse IT fields, with a strong
-          foundation in application development and web design using C, Java, PHP, and MySQL.
-          Proficient in multimedia skills including animation, video editing, and graphic design.
-          Committed to continuous learning, with a focus on enhancing teamwork, adaptability, and
-          time management abilities.
+          Computer Science graduate seeking a role in IT fields, with a strong
+          foundation in application and full-stack web development. Experienced in AI data annotation and content moderation while maintaining high efficiency. Proficient in multimedia skills including animation, video editing, and graphic design. Committed to continuous learning, with a focus on enhancing teamwork, adaptability, and
+          technical abilities.
         </p>
       </section>
 
-      <section class="section">
+      <section class="section" style="animation-delay: 0.48s;">
         <h2 class="section-title">Work Experience</h2>
+        <article class="entry">
+
+          <div>
+            <div class="entry-title">Appen AI Sdn Bhd</div>
+            <div class="entry-subtitle">Data Annotator</div>
+          </div>
+          <div class="entry-date">May 2025</div>
+          <div style="grid-column: 1 / span 2; grid-row: 2;" class="edu-degree">
+           Contributed to 4 distinct major projects, conducted large-scale annotation and quality evaluation of multi-modal content to improve AI-driven content moderation systems, while sustaining productivity targets
+</div>
+        </article>
 
         <article class="entry">
           <div>
-            <div class="entry-title">Freelancer</div>
-            <div class="entry-subtitle">Computer Repair & Maintenance</div>
+            <div class="entry-title">Freelancer <a style="color: var(--accent); font-weight: 600;">(ilhamstudio.my)</a></div>
+            <div class="entry-subtitle">Computer Maintenance &amp; Multimedia Designer</div>
           </div>
           <div class="entry-date">Apr 2024 - Oct 2024</div>
+          <div style="grid-column: 1 / span 2; grid-row: 2;" class="edu-degree">
+Diagnosed computer hardware issues, performed system maintenance including data backups and optimization, while also side‑hustling various multimedia projects such as poster and video editing</div>
         </article>
 
         <article class="entry">
@@ -435,6 +506,8 @@
             <div class="entry-subtitle">Internship Trainee (Degree)</div>
           </div>
           <div class="entry-date">Oct 2023 - Mar 2024</div>
+          <div style="grid-column: 1 / span 2; grid-row: 2;" class="edu-degree">Main duties included assisting the Hydrology Section. Projects include creating schematic diagram in Excel, creating
+multimedia design for department event</div>
         </article>
 
         <article class="entry">
@@ -443,10 +516,12 @@
             <div class="entry-subtitle">Industrial Training (Diploma)</div>
           </div>
           <div class="entry-date">Aug 2017 - Jan 2018</div>
+          <div style="grid-column: 1 / span 2;  grid-row: 2;" class="edu-degree">Main duties included assisting the IT Department. 
+Projects include creating corporate video and creating app for MPK</div>
         </article>
       </section>
 
-      <section class="section">
+      <section class="section" style="animation-delay: 0.56s;">
         <h2 class="section-title">Education</h2>
 
         <div class="education-item">
@@ -461,6 +536,56 @@
           <div class="edu-meta">2018 • Major: Information Technology</div>
         </div>
       </section>
+
+<section class="section" style="animation-delay: 0.64s;">
+        <h2 class="section-title">Certification</h2>
+
+        <div class="education-item">
+<table style="width:100%;" class="cert-table">
+  <tbody><tr>
+    <td style="width:50%">Microsoft Azure Administrator</td>
+    <td>Qualcomm 5G Introductory-Level Certification</td>
+  </tr><tr>
+    <td>Google Generative AI for Educators Certificate</td>
+	<td>City &amp; Guilds Assured - Radio Frequency Network Installation &amp; Maintenance Telecommunication</td>
+    
+  </tr>
+  
+  <tr>
+    <td>Statistical Analysis Tools in Six Sigma (SATSS)</td>
+<td>The Sustainability Workforce in Malaysia, NIOSH</td>
+    
+  </tr>
+</tbody></table>
+        </div>
+      </section>
+
+<section class="section" style="animation-delay: 0.72s;">
+        <h2 class="section-title">Awards</h2>
+
+        <div class="education-item">
+        <ul class="cert-list">
+          <li>Malaysia Qualification Round, Asiagraph Reallusion Award
+<div class="edu-meta">2017 • National-level • Participant</div>
+</li>
+          
+          <li>Malaysian United Cadets Association (PKBM) Camp
+<div class="edu-meta">2013 • National-level • Participant</div>
+</li><li>1Student 1Sports 1Malaysia Concurrent Run 
+<div class="edu-meta">2011 • National-level • Participant</div>
+</li>
+        </ul>
+
+        </div>
+      </section>
+
+        <section class="section" style="animation-delay: 0.8s;">
+        <h2 class="section-title">REFERENCES</h2>
+        <div class="education-item">
+test
+        </div>
+        
+        </section>
     </section>
   </main>
 
@@ -471,5 +596,6 @@
       el.style.animationDelay = `${0.08 + i * 0.08}s`;
     });
   </script>
-</body>
-</html>
+
+
+</body></html>
