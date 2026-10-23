@@ -1,3 +1,3 @@
 # ResumeHTML
 
-### A personal resume and portfolio website built using HTML, CSS, and JavaScript. This project showcases professional experience, education, technical skills, certifications, and contact information in a modern and responsive web-based resume format.
+A personal resume and portfolio website built using HTML, CSS, and JavaScript. This project showcases professional experience, education, technical skills, certifications, and contact information in a modern and responsive web-based resume format.
